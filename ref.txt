@@ -1,0 +1,148 @@
+Introduction
+Marathon dreams often begin with a single, slightly overconfident and impulsive decision. In this case, it is our 25-year-old university friend signing up for the Singapore Standard Chartered Marathon (SCSM), despite currently running only 5 kilometres each week. With six months to prepare and an ambitious goal of completing the race in under five hours, the challenge is further intensified by Singapore’s hot and humid climate, as well as an unusual 5pm race flag-off.
+This project focuses on preparing a novice runner for the SCSM, where the evening race timing introduces additional physiological stress compared to traditional early-morning events. As a result, factors such as heat management, hydration, and pacing become critical components in achieving optimal performance and ensuring safety.
+To address this, we first leveraged a Large Language Model (ChatGPT) to generate a comprehensive six-month training programme. While such AI-generated recommendations offer convenience and accessibility, their reliability and applicability require careful evaluation. As such, this report consists of 3 main components: (1) prompting and the generated six-month training programme including nutrition and recovery strategies, and (2) evaluation of the suitability of the recommendations with scientific evidence, and (3) proposing a refined training plan, justified by scientific evidence. 
+
+Training Plan
+Strengths 
+One key strength of ChatGPT’s plan is the inclusion of regular cutback weeks, approximately every fourth week. This aligns with established training principles, where periodic reductions in training load are used to facilitate recovery, reduce injury risk, and consolidate physiological adaptations. In addition, the gradual progression of long runs reflects current endurance training practices. The systematic increase in long run distance is consistent with the principle of progressive overload, which is essential for improving aerobic capacity and endurance performance in marathon runners. The inclusion of a tapering phase prior to race day is also consistent with evidence-based recommendations. Tapering reduces accumulated fatigue while maintaining fitness, thereby optimising race-day performance.
+Limitations
+A major limitation of ChatGPT’s plan is the unrealistic initial increase in training volume. The runner’s baseline is approximately 5 km per week, yet the plan prescribes ~19 km in Week 1, which is an increase of nearly 280%.  This contradicts the findings of a quantitative analysis where 92 sub-elite marathon plans show low-volume programs prescribe just 9±4% average weekly increases during build-up, with high- and middle-volume plans even more gradual at 5–7% (Knopp et al, 2024). Hence, ChatGPT’s 280% overload is significantly aggressive and lacks sufficient individualisation to the runner’s starting fitness level. A sharp increase in training volume is likely to increase the risk of overuse injuries, excessive fatigue particularly for a novice runner with a low baseline fitness level. Furthermore, across all three volume groups, the longest training run converged around 30–32km regardless of volume category. ChatGPT's peak long run of 34km sits slightly above even the high volume group's recommendation of 35.2km. For a low volume, sub-5 hour runner, the paper's data suggests 30–31km would be more appropriate, with longer distances offering limited additional benefit.
+Another key limitation is the lack of structured strength training. Evidence suggests that concurrent strength and endurance training can enhance muscular strength and improve running economy over time. A randomised controlled trial in recreational marathon runners demonstrated that adding 120 min·wk⁻¹ of heavy lower-body strength training (4 sets of 3–5 repetitions), alongside trunk endurance work, significantly improved strength over 8 weeks, although improvements in running economy were not immediate (Ferrauti et al, 2010). Further evidence from master runners shows that maximal strength training (4 × 3–4 repetitions at 85–90% 1RM, twice weekly) improved running economy by 6.17% at marathon pace after 6 weeks, whereas lighter resistance training produced no meaningful effects (Piacentini, 2012). This suggests that high-load strength training is necessary to induce neuromuscular adaptations without excessive hypertrophy. Therefore, while strength training may not produce immediate performance gains in novice runners, its exclusion limits long-term improvements in running economy and injury resilience.
+ChatGPT’s training plan allocates only 25-27% of weekly mileage to easy runs (zones 1-2), with unclear guidance on long-run intensity, which is inadequate for a novice with a baseline of 5 km per week. In contrast, an analysis of 92 sub-elite marathon training plans shows that even high-volume recreational programmes devote approximately 82% of total volume to zones 1-2 during the final 12 weeks, aligning with polarized training models in elite runners, where ≥ 80% of training is performed at low intensity (below marathon pace) (Knopp et al, 2024).. Middle- and low-volume programmes similarly allocate 77-78% of training to low-intensity zones. Therefore, the proportion of easy running prescribed by ChatGPT deviates substantially from established training practices.
+Lastly, the bulk of ChatGPT’s training prescription relies on absolute running pace as the primary indicator of intensity. This is problematic as it does not account for inter-individual physiological differences such as VO₂max and heart rate response. Prescribing training solely based on pace may lead to underloading in more trained individuals or overloading in less fit runners. This limitation is supported by Siddique et al. (2019), who showed that intensity thresholds vary substantially when defined relative to physiological markers (e.g., %HRmax, RPE), highlighting how absolute measures can misrepresent true effort. A more appropriate approach is to individualise training using physiological markers. For example, pace zones can be derived from estimated VO₂max via beep test or recent race performance. Where such testing is unavailable, HR–based training provides a practical alternative, with RPE further complementing internal load. Overall, effective marathon training should prioritise individual physiological responses rather than fixed absolute paces.
+Heat Adaptation (HA)
+As part of ChatGPT’s HA strategy, in the last 8 weeks of training, we were suggested to implement long runs in late afternoons at roughly 3 to 5 pm, even though the actual competition conditions could differ. In order to verify its claims, we will need to know the differences in conditions. Since the competition and similarly the training are in the future, we can roughly predict the temperature and humidity, using the past 3 years' worth of climate data from the National Environment Agency (NEA), during training for heat adaptation and the actual competition conditions. We built 4 different models to predict the high and low temperatures in Celsius, and high and low relative humidity in percent. The R2 values, measuring the amount of variance explained, of these models are 0.787, 0.851, 0.885, and 0.881, respectively. Since these R2 are close to 1, we can say these models are somewhat a good fit for the given data. The predictions for the given month and time are shown in figure 1, to 1 decimal place.
+The average temperatures in December at the stated times are lower, by an estimated average of ~0.742oC across all weather conditions. The average relative humidity in December at the stated time is also higher, with an estimated average difference of ~0.983% across weather conditions. These suggest that the estimated competition environment will be slightly lower in temperature but slightly higher in humidity. This sets the environmental context for this section.
+Strengths
+	Some strengths of the recommendations include: (1) Starting HA in a warmer environment, (2) Slower pacing for hot days, and (3) humidity being the greatest limiter of performance. A study by Lorenzo et al. (2010) found that after a 10-day heat acclimatisation program at 40oC, the twelve trained cyclists were observed to have an increased VO2max by 8% and improved time-trial performance by 8% in a 38oC environment, at a fixed relative humidity of 30% throughout the study. This gives some merit to ChatGPT’s advice to start HA in a slightly warmer environment, in the late afternoons of October, with similar relative humidity levels. 
+The AI continues to suggest a slower running pace during hot training days. Pryor et al. (2018) found that trained athletes running for 30–35 minutes per day at 75% V̇ O2max or walking for 60 minutes per day at 50% V̇O2max in the heat over nine days develop similar magnitudes of HA. Hence, it is technically possible to run at a slower pace, and still develop HA.
+“Singapore humidity will be the biggest performance limiter” is a claim by ChatGPT. Studies done by Maughan et al. (2011) concurs with this claim. Maughan et al. (2011) had 8 male athletes cycle at 30 degrees celsius with differing humidity levels, at a fixed 70% VO2 max, and she found that the average time to exhaustion decreases as humidity levels increases. This follows that the RH in Singapore at ~80% significantly limits an athlete’s performance. This is summarised by figure 2.
+Limitations
+The AI had multiple inaccuracies, which include: (1) the period suggested for HA is too long, and (2) heart rate increase may be underestimated. ChatGPT suggested HA in the last 8 weeks. However, a consensus (Racinais et al., 2015) and a review (Périard et al, 2015) found that about 2 weeks is sufficient for the HA period. The review (Périard et al, 2015) showed that after 12 days of HA, the adaptations, including increased sweat rate, decreased heart rate, slightly decreased skin temperature and others during exercise, mostly stabilised. Furthermore, the study by Lorenzo et al. (2010), as discussed above, also observed significant improvements in VO2max, with just a 10 day HA program. These point to ChatGPT overestimating the period required for HA, as after 2 weeks, the improvements are shown to be negligible. 
+The inaccuracies by ChatGPT continues, as its claim that 5-10 bpm of HR increase is also not completely accurate. A study by (Wingo et al., 2012) found that there will be a HR increase of at least 10% when placed under some heat stress after about 10 minutes of moderate-intensity exercise. This means that if an athlete is exercising at the same intensity without heat stress, and if his HR was 145, then with heat stress, that would be at least an increase of 14.5 bpm, outside of the AI’s predicted 5-10 bpm. 
+Race Strategy 
+The race strategy proposed by ChatGPT outlines a negative-to-even pacing profile to achieve a sub-5 hour marathon finish. It suggests a conservative start at 7:15/km for the first 10 km, before moving into a target pace of 7:00/km up to the 35 km mark. For the final 7.2 km, the AI recommends either accelerating to a faster pace if feeling strong, or slightly decelerating to a 7:10/km pace if struggling. The suggestion checks out to be sub-4 hours. The main reference used during this section will be a marathon pacing strategy systematic review by Sha et al. (2024).
+Strengths
+Some strengths of the recommendations include: (1) highlighting the importance of the 30–35 km zone, and (2) emphasising the control of heart rate through a slower start. Sha et al. (2024) discusses the phenomenon of "hitting the wall" occurring late in the race, which is characterised by a sudden fatigue. This fatigue can decelerate even highly-trained runners and often limits a runner to a walking pace for the rest of the race. ChatGPT’s advice to maintain pace and strictly avoid speeding up during the 30–35km segment is structurally sound to help reduce this physiological collapse (Sha et al., 2024). Furthermore, the recommendation to start at a slower pace aligns with the principle of early energy conservation, aiming to delay glycogen depletion (Sha et al., 2024).
+Limitations
+The AI's strategy ignores how performance and experience level and gender affects pacing. Sha et al. (2024) establishes that lower-performing and less experienced athletes experience significantly more speed fluctuations and sharper declines later in the marathon compared to elite runners, who are better trained to maintain an even pace. Furthermore, male athletes generally experience a more significant speed reduction during races compared to female athletes, often due to greater muscle glycogen depletion in the latter stages (Sha et al. 2024). By prescribing a highly disciplined pacing strategy with a variance of only 10 to 15 seconds per kilometer across the entire distance, ChatGPT may be subjecting a novice male runner to an elite-level pacing strategy, which may not be completely suitable.
+Recovery and Injury
+Strengths
+One key strength of the recovery and injury prevention recommendations is that they are broadly aligned with current evidence-based practices, particularly in relation to sleep, stretching, and strength training. The recommendation of 7–9 hours of sleep is well supported by the consensus statement, which identifies this range as optimal for adult health, making it a suitable baseline guideline for recreational runners (Watson et al., 2015). This is further reinforced by evidence showing that insufficient sleep can impair endurance performance, with studies reporting reductions in running distance and speed following partial sleep deprivation, as well as greater negative effects in prolonged exercise exceeding 30 minutes. Additionally, the inclusion of post-run stretching demonstrates alignment with emerging literature, particularly the use of proprioceptive neuromuscular facilitation (PNF) stretching, which has been shown to be more effective than traditional methods in reducing fatigue after marathon running. The recommendation for strength training 1–2 times per week also reflects current research suggesting that concurrent strength and endurance training can improve running economy and muscular strength without negatively impacting performance, especially when implemented consistently over time. Furthermore, the guideline to reduce training load when pain persists beyond three days is supported by longitudinal studies, which emphasise the importance of managing overuse injuries early to prevent progression (Messier et al., 2018) . Overall, these recommendations demonstrate strong alignment with scientific literature and incorporate key principles of recovery, fatigue management, and injury risk reduction, making them both practical and evidence-informed for recreational runners.
+Limitations
+A key limitation of the recovery and injury prevention recommendations is that they rely on broad, general guidelines without fully incorporating the specific findings and nuances of the supporting literature. For instance, although the recommendation of 7–9 hours of sleep is supported, this guideline is derived from the general population and does not account for the demands of endurance training (Watson et al. 2015). Evidence provided shows that partial sleep deprivation in trained runners leads to an approximate 6% reduction in distance covered, slower running speeds, and poorer psychological responses, while a systematic review further highlights that endurance performance is more negatively affected in exercises exceeding 30 minutes. In addition, research on overreached endurance athletes indicates that increased training load can reduce objective sleep efficiency even when subjective sleep quality appears unchanged, suggesting that relying solely on a fixed sleep duration recommendation may be insufficient for monitoring recovery and training readiness.
+Similarly, the inclusion of post-run stretching is not well supported when examined against the cited evidence. While it is demonstrated that PNF stretching is more effective than traditional methods in relieving post-marathon fatigue, other referenced literature indicates that stretching does not meaningfully reduce injury risk or serve as a comprehensive recovery strategy (Thai et al. 2023). Consensus statements further emphasise that stretching does not substantially contribute to muscle growth, injury prevention, or post-exercise recovery. Moreover, a randomised controlled trial shows that a hip and core strengthening programme was effective in reducing running-related overuse injuries, whereas stretching-based interventions were not, suggesting that the recommendation overemphasises stretching despite limited supporting evidence.
+The strength training recommendation is also limited by a lack of alignment with the evidence provided. While it suggests training 1–2 times per week, the cited literature indicates that short-term or low-intensity programmes may not significantly influence injury risk or performance outcomes. For example, a large randomised controlled trial in army recruits found that a concurrent programme focusing on strength, coordination, and flexibility did not reduce the incidence of overuse injuries, despite improving running performance. Additionally, studies on concurrent strength and endurance training highlight that meaningful improvements in running economy and muscular adaptations require longer-term, structured interventions, which are not reflected in the recommendation.
+Other aspects, such as footwear and pain management, are similarly oversimplified. The recommendation to replace shoes every 600–800 km does not align with findings, which show that injury risk is influenced by the interaction between shoe characteristics (e.g., heel-to-toe drop) and runner experience, rather than a fixed mileage threshold (Malisoux et al. 2016). Likewise, the advice to reduce training load if pain persists beyond three days does not capture the multifactorial nature of overuse injuries. Evidence from the TRAILS Study indicates that factors such as body weight and knee stiffness play a more significant role in injury risk, while commonly assumed factors like flexibility, footwear, and weekly mileage are not consistently associated with injuries. Furthermore, recovery literature suggests that no single recovery strategy is universally effective, with approaches such as massage, compression, and cryotherapy showing varying benefits depending on context. Overall, the recommendations are limited by their reliance on simplified interpretations of the evidence, without adequately integrating the more complex and sometimes conflicting findings presented in the cited studies.
+Nutrition and Hydration Plan
+Strengths
+The three strengths of the nutrition and hydration plan generated by ChatGPT are: (1) the inclusion of carbohydrates, protein and electrolytes; (2) the incorporation of carbohydrate loading; and (3) guidelines that broadly align with existing literature.
+Firstly, Tiller et al. (2019) highlight the importance of protein, carbohydrates and electrolytes in the diet of marathon runners (Tiller et al., 2019. In the nutrition and hydration plan that ChatGPT generated, these are the three key aspects of a marathoner’s training diet that are addressed. Secondly, ChatGPT recommends “carb-loading”. Due to muscle glycogen stores becoming depleted in the latter stages of a marathon, leading to the phenomenon commonly known as "hitting the wall", carbohydrate loading helps to supercompensate the muscle glycogen stores in preparation for prolonged exercise, making it a critical component of marathon preparation (Burke, 2007). Lastly, the guidelines that ChatGPT generates for each aspect of nutrition and hydration are mostly consistent with literature.
+Weaknesses
+	The two weaknesses of the nutrition and hydration plan generated by ChatGPT are: (1) lack of specificity in several areas and (2) oversimplification of long runs.
+	Regarding the first weakness, while ChatGPT identifies carbohydrates as a daily training requirement, it fails to specify the recommended daily intake. This lack of specificity extends to other areas in the plan as well, such as the amount of electrolytes needed to drink during and after runs, and the amount of carbohydrates to consume when carbohydrate loading before race week. As for the second weakness, ChatGPT broadly categorises long runs as any run exceeding 90 minutes and applies a single set of dietary recommendations accordingly. However, Jeukendrup (2011) suggests the importance of adjusting one’s carbohydrate intake during exercise based on the specific duration of the run, rather than simply categorising runs as simply long and short. By failing to account for this, ChatGPT’s plan falls short by its oversimplification of long runs.
+
+Appendix 
+Runner’s Profile 
+Attribute
+Details
+Age
+25 years old
+Gender
+Male
+Height
+1.70 m
+Weight
+65 kg
+Current Fitness Level
+Beginner
+Running Experience
+Runs ~5 km once per week
+Marathon Experience
+None
+Injury History
+No prior injuries or health conditions
+Training Goal
+Complete marathon under 5 hours
+Training Preference
+3 runs per week, preferably in the evenings
+
+
+ChatGPT Prompt
+My friend has the following profile and is training to run the Singapore Standard Chartered marathon under 5 hours:
+25 years old
+NUS student
+Male
+Height: 1.7m
+Weight: 65kg
+Currently runs 5km once a week, never ran a marathon before
+No prior injury or health conditions
+
+Details of the marathon
+Flag-off timing is 5pm in the afternoon instead of the usual 4.30am in the morning
+Outdoors
+Mostly flat urban asphalt roads in Singapore with occasional mild inclines
+Singapore climate (hot and humid conditions)
+
+Training preferences
+He has six months to train for the marathon.
+Prefers to run only 3 times a week, evenings (but is flexible with the timing of training)
+Prefers to run outdoors.
+Aiming to achieve Sub-5 hours timing for the marathon
+Provide a comprehensive 6-month training recommendation that includes a detailed week-by-week training program leading up to race day. This plan should emphasise optimal performance, rest, and recovery. The output should be structured clearly, with distinct sections for the training program, nutrition advice, and race strategy, allowing for easy reference and understanding.
+
+ChatGPT Response
+<insert response here>
+
+Month
+Time
+Average Temperature (oC)
+Average Relative Humidity (%)
+10
+1500
+29.2
+76.5
+12
+1700
+28.5
+77.5
+
+Figure 1. Table of results from model
+
+
+Figure 2. Plot by Maughan et al. (2011) showing how humidity affects time to exhaustion
+
+Model metrics of models used for predicting RH and Temperature
+
+
+Link to models: https://github.com/hongyaok/SGHumidity 
+Link to NEA datasets: https://data.gov.sg/collections/2213/view 
+References
+Ferrauti, A., Bergermann, M., & Fernandez-Fernandez, J. (2010). Effects of concurrent strength and endurance training on running performance and running economy in recreational marathon runners. Journal of Strength and Conditioning Research, 24(10), 2770–2778. https://doi.org/10.1519/JSC.0b013e3181d64e9c 
+
+Knopp, M., Appelhans, D., Schönfelder, M., Seiler, S., & Wackerhage, H. (2024). Quantitative Analysis of 92 12-Week Sub-elite Marathon Training Plans. Sports medicine - open, 10(1), 50. https://doi.org/10.1186/s40798-024-00717-5 
+
+Lorenzo, S., Halliwill, J. R., Sawka, M. N., & Minson, C. T. (2010). Heat acclimation improves exercise performance. Journal of Applied Physiology, 109(4), 1140–1147. https://doi.org/10.1152/japplphysiol.00495.2010 
+
+Malisoux, L., Chambon, N., Urhausen, A., Theisen, D. (2016). Influence of the Heel-to-Toe Drop of Standard Cushioned Running Shoes on Injury Risk in Leisure-Time Runners: A Randomized Controlled Trial With 6-Month Follow-up: A Randomized Controlled Trial With 6-Month Follow-up. The American Journal of Sports Medicine. 44(11):2933-2940. doi:10.1177/0363546516654690 
+
+Messier, S. P., Martin, D. F., Mihalko, S. L., Edward, I., Devita, P., Cannon, W., Love, M., Beringer D., Saldana, S., Fellin, R. E., Seay, J. F. (2018). A 2-Year Prospective Cohort Study of Overuse Running Injuries: The Runners and Injury Longitudinal Study (TRAILS). The American Journal of Sports Medicine. 46(9):2211-2221. doi:10.1177/0363546518773755 
+
+Périard, J. D., Racinais, S., & Sawka, M. N. (2015). Adaptations and mechanisms of human heat acclimation: Applications for competitive athletes and sports. Scandinavian journal of medicine & science in sports, 25 Suppl 1, 20–38. https://doi.org/10.1111/sms.12408 
+
+Piacentini, M. F., De Ioannon, G., Comotto, S., Spedicato, A., Vernillo, G., & La Torre, A. (2013). Concurrent strength and endurance training effects on running economy in master endurance runners. Journal of strength and conditioning research, 27(8), 2295–2303. https://doi.org/10.1519/JSC.0b013e3182794485 
+
+Pryor, J. L., Johnson, E. C., Roberts, W. O., & Pryor, R. R. (2019). Application of evidence-based recommendations for heat acclimation: Individual and team sport perspectives. Temperature, 6(1), 37–49. https://doi.org/10.1080/23328940.2018.1516537 
+
+Racinais, S., Alonso, J. M., Coutts, A. J., Flouris, A. D., Girard, O., González-Alonso, J., Hausswirth, C., Jay, O., Lee, J. K., Mitchell, N., Nassis, G. P., Nybo, L., Pluim, B. M., Roelands, B., Sawka, M. N., Wingo, J., & Périard, J. D. (2015). Consensus Recommendations on Training and Competing in the Heat. Sports medicine (Auckland, N.Z.), 45(7), 925–938. https://doi.org/10.1007/s40279-015-0343-6 
+
+Sha, J., Yi, Q., Jiang, X., Wang, Z., Cao, H., & Jiang, S. (2024). Pacing strategies in marathons: A systematic review. Heliyon, 10, e36760. https://doi.org/10.1016/j.heliyon.2024.e36760 
+
+Watson, N. F., Badr, M. S., Belenky, G., Bliwise, D. L., Buxton, O. M., Buysse, D., Dinges, D. F., Gangwisch, J., Grandner, M. A., Kushida, C., Malhotra, R. K., Martin, J. L., Patel, S. R., Quan, S. F., & Tasali, E. (2015). Recommended Amount of Sleep for a Healthy Adult: A Joint Consensus Statement of the American Academy of Sleep Medicine and Sleep Research Society. Sleep, 38(6), 843–844. https://doi.org/10.5665/sleep.4716 
+
+Wingo, J. E., Ganio, M. S., & Cureton, K. J. (2012). Cardiovascular drift during heat stress: implications for exercise prescription. Exercise and sport sciences reviews, 40(2), 88–94. https://doi.org/10.1097/JES.0b013e31824c43af 
+
+Zhang, X.,  Liu, Z. (2023). RELIEF OF SPORTS FATIGUE AFTER MARATHON RACES BY PNF STRETCHING. Revista Brasileira de Medicina do Esporte https://doi.org/10.1590/1517-8692202329012023_0041 
+
+Siddique, J., Aaby, D., Montag, S. E., Sidney, S., Sternfeld, B., Welch, W. A., Carnethon, M. R., Liu, K., Craft, L. L., Pettee Gabriel, K., Barone Gibbs, B., Reis, J. P., & Freedson, P. (2020). Individualized relative-intensity physical activity accelerometer cut points. Medicine and Science in Sports and Exercise, 52(2), 398–407. https://doi.org/10.1249/MSS.0000000000002153
