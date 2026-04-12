@@ -1,9 +1,15 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import AppShell from "../../components/AppShell";
 import LoadingModal from "../../components/LoadingModal";
 import StatusToast from "../../components/StatusToast";
+import {
+  defaultRunnerProfile,
+  loadRunnerProfile,
+  savePlanInputSnapshot,
+  saveRunnerProfile,
+} from "../../lib/runnerProfile";
 
 const distanceOptions = [
   { value: "42", label: "42.195 km Marathon", enabled: true },
@@ -13,11 +19,18 @@ const distanceOptions = [
 
 const profileFields = [
   {
+    id: "name",
+    label: "Name",
+    kind: "input",
+    inputType: "text",
+    defaultValue: defaultRunnerProfile.name,
+  },
+  {
     id: "age",
     label: "Age",
     kind: "input",
     inputType: "number",
-    defaultValue: "25",
+    defaultValue: defaultRunnerProfile.age,
     min: 10,
     max: 100,
     step: 1,
@@ -27,14 +40,14 @@ const profileFields = [
     id: "gender",
     label: "Gender",
     options: ["Male", "Female"],
-    defaultValue: "Male",
+    defaultValue: defaultRunnerProfile.gender,
   },
   {
     id: "height",
     label: "Height",
     kind: "input",
     inputType: "number",
-    defaultValue: "1.70",
+    defaultValue: defaultRunnerProfile.height,
     min: 1.2,
     max: 2.3,
     step: 0.01,
@@ -45,7 +58,7 @@ const profileFields = [
     label: "Weight",
     kind: "input",
     inputType: "number",
-    defaultValue: "65",
+    defaultValue: defaultRunnerProfile.weight,
     min: 30,
     max: 200,
     step: 0.1,
@@ -55,37 +68,42 @@ const profileFields = [
     id: "fitness",
     label: "Current Fitness Level",
     options: ["Beginner", "Intermediate"],
-    defaultValue: "Beginner",
+    defaultValue: defaultRunnerProfile.fitness,
   },
   {
     id: "experience",
     label: "Running Experience",
-    options: ["Runs <2km a week", "Runs 2-5km a week", "Runs 5-10km a week", "Runs >10km a week"],
-    defaultValue: "Runs 2-5km a week",
+    options: ["Runs <2km a week", "Runs 2-5km a week", "Runs 5km once a week", "Runs 5-10km a week", "Runs >10km a week"],
+    defaultValue: defaultRunnerProfile.runningExperience,
   },
   {
     id: "marathonExp",
     label: "Marathon Experience",
-    options: ["None", "Completed one half marathon", "One full marathon completed", "Two or more marathons completed"],
-    defaultValue: "None",
+    options: [
+      "No prior marathon experience",
+      "Completed one half marathon",
+      "One full marathon completed",
+      "Two or more marathons completed",
+    ],
+    defaultValue: defaultRunnerProfile.marathonExperience,
   },
   {
     id: "injury",
     label: "Injury History",
-    options: ["No prior injuries or health conditions", "Minor prior knee discomfort"],
-    defaultValue: "No prior injuries or health conditions",
+    options: ["No recent injuries", "Minor prior knee discomfort"],
+    defaultValue: defaultRunnerProfile.injuryHistory,
   },
   {
-    id: "goal",
-    label: "Training Goal",
-    options: ["Complete marathon under 5 hours", "Complete marathon comfortably"],
-    defaultValue: "Complete marathon under 5 hours",
+    id: "targetTiming",
+    label: "Target Timing",
+    options: ["5 hours", "4 hours 45 mins", "Complete comfortably"],
+    defaultValue: defaultRunnerProfile.targetTiming,
   },
   {
     id: "preference",
     label: "Training Preference",
     options: ["3 runs per week, preferably in the evenings", "4 runs per week, mixed timings"],
-    defaultValue: "3 runs per week, preferably in the evenings",
+    defaultValue: defaultRunnerProfile.trainingPreference,
   },
 ];
 
@@ -102,6 +120,24 @@ export default function NewPlanPage() {
   const [loadingPlan, setLoadingPlan] = useState(false);
   const [toastMessage, setToastMessage] = useState("");
 
+  useEffect(() => {
+    const storedProfile = loadRunnerProfile();
+    setProfile((current) => ({
+      ...current,
+      name: storedProfile.name,
+      age: storedProfile.age,
+      gender: storedProfile.gender,
+      height: storedProfile.height,
+      weight: storedProfile.weight,
+      fitness: storedProfile.fitness,
+      experience: storedProfile.runningExperience,
+      marathonExp: storedProfile.marathonExperience,
+      injury: storedProfile.injuryHistory,
+      targetTiming: storedProfile.targetTiming,
+      preference: storedProfile.trainingPreference,
+    }));
+  }, []);
+
   function updateField(fieldId, value) {
     setProfile((current) => ({ ...current, [fieldId]: value }));
   }
@@ -117,6 +153,34 @@ export default function NewPlanPage() {
     };
 
     window.setTimeout(() => {
+      saveRunnerProfile({
+        name: payload.profile.name,
+        age: payload.profile.age,
+        gender: payload.profile.gender,
+        height: payload.profile.height,
+        weight: payload.profile.weight,
+        fitness: payload.profile.fitness,
+        runningExperience: payload.profile.experience,
+        marathonExperience: payload.profile.marathonExp,
+        injuryHistory: payload.profile.injury,
+        targetTiming: payload.profile.targetTiming,
+        trainingPreference: payload.profile.preference,
+      });
+
+      savePlanInputSnapshot({
+        createdAt: new Date().toISOString(),
+        distance: payload.distance,
+        name: payload.profile.name,
+        age: payload.profile.age,
+        gender: payload.profile.gender,
+        height: payload.profile.height,
+        weight: payload.profile.weight,
+        runningExperience: payload.profile.experience,
+        marathonExperience: payload.profile.marathonExp,
+        injuryHistory: payload.profile.injury,
+        targetTiming: payload.profile.targetTiming,
+      });
+
       setSubmitted(payload);
       setLoadingPlan(false);
       setToastMessage("Plan created successfully.");
@@ -168,10 +232,11 @@ export default function NewPlanPage() {
                         step={field.step}
                         value={profile[field.id]}
                         onChange={(event) => updateField(field.id, event.target.value)}
+                        placeholder={field.label}
                         required
                       />
                     </div>
-                    <p className="meta">Unit: {field.unit}</p>
+                    {field.unit && <p className="meta">Unit: {field.unit}</p>}
                   </div>
                 );
               }
@@ -219,7 +284,7 @@ export default function NewPlanPage() {
         <section className="card stack">
           <h3>Generated plan summary</h3>
           <p>
-            Target distance: {distanceOptions.find((option) => option.value === submitted.distance)?.label || "42.195 km Marathon"} | Goal: {submitted.profile.goal}
+            Target distance: {distanceOptions.find((option) => option.value === submitted.distance)?.label || "42.195 km Marathon"} | Target timing: {submitted.profile.targetTiming}
           </p>
           <div className="notice">
             Suggested framework: 6-month progression, low initial mileage jump, ~80% easy-intensity training,

@@ -12,7 +12,7 @@ export default function HomePage() {
 
   return (
     <AppShell
-      title="Welcome back, Runner"
+      title="Welcome back, Xavier!"
       subtitle="Pick your next step: review today&apos;s guidance or build your race setup."
     >
       <section className="option-grid">
@@ -35,6 +35,16 @@ export default function HomePage() {
             Start Setup
           </Link>
         </article>
+
+        {/* <article className="option-card">
+          <h2>Training History</h2>
+          <p>
+            Review expected vs actual pace, distance, time, nutrition, and sleep logs in one timeline.
+          </p>
+          <Link href="/existing-plan?view=history" className="btn btn-ghost">
+            Open History
+          </Link>
+        </article> */}
       </section>
 
       <section className="card stack">

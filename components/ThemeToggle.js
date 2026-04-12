@@ -33,9 +33,20 @@ export default function ThemeToggle() {
     setTheme(nextTheme);
   }
 
+  const isDark = mounted && theme === "dark";
+
   return (
-    <button className="theme-toggle" onClick={toggleTheme} type="button" aria-label="Toggle theme">
-      {mounted && theme === "dark" ? "Light mode" : "Dark mode"}
+    <button
+      className={`theme-toggle ${isDark ? "is-dark" : "is-light"}`}
+      onClick={toggleTheme}
+      type="button"
+      role="switch"
+      aria-checked={isDark}
+      aria-label="Toggle dark and light mode"
+    >
+      <span className="theme-toggle-track" aria-hidden="true">
+        <span className="theme-toggle-thumb" />
+      </span>
     </button>
   );
 }

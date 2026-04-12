@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import SingaporeClock from "../components/SingaporeClock";
@@ -43,7 +44,10 @@ export default function LoginPage() {
 
         <section className="panel login-card stack">
           <div>
-            <div className="brand-kicker">StrideSG Marathon</div>
+            <div className="login-brand-row">
+              {/* <Image src="/horse.png" alt="StrideSG logo" width={52} height={52} className="login-logo" priority /> */}
+              <div className="brand-kicker">StrideSG Marathon</div>
+            </div>
             <h1>Train smart for your next marathon.</h1>
             <p style={{ marginTop: "0.7rem" }}>
               Singapore-focused coaching flow with pacing, heat, hydration, and recovery guidance.
@@ -59,7 +63,7 @@ export default function LoginPage() {
             </button>
           </div>
 
-          <p className="footer-note">No backend auth yet. This button flow is hardcoded for demo use.</p>
+          <p className="footer-note">This app is hardcoded for demo use.</p>
         </section>
 
         <LoadingModal

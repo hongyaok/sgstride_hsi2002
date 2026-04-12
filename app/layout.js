@@ -1,19 +1,24 @@
-import { Sora, Space_Grotesk } from "next/font/google";
+import { Outfit, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 
-const sora = Sora({
+const jakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
-  variable: "--font-sora",
+  variable: "--font-jakarta",
 });
 
-const spaceGrotesk = Space_Grotesk({
+const outfit = Outfit({
   subsets: ["latin"],
-  variable: "--font-space",
+  variable: "--font-outfit",
 });
 
 export const metadata = {
   title: "StrideSG Marathon",
   description: "Mobile-first marathon training app for Singapore.",
+  icons: {
+    icon: "/horse.png",
+    shortcut: "/horse.png",
+    apple: "/horse.png",
+  },
 };
 
 const themeInitScript = `
@@ -32,7 +37,7 @@ const themeInitScript = `
 export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${sora.variable} ${spaceGrotesk.variable}`}>
+      <body className={`${jakarta.variable} ${outfit.variable}`}>
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
         {children}
       </body>
