@@ -139,24 +139,27 @@ export default function HomePage() {
         </section>
 
         <section className="card stack">
-          <h2>Roadmap snapshot</h2>
+          <h2>Training roadmap</h2>
           <p>
             {daysToRace} days to race day ({weeksToRace} weeks). Current phase highlighted below.
           </p>
-          <div className="phase-list">
-            {phaseRoadmap.map((phase, index) => {
-              const isCurrent = currentPhaseIndex === index;
+          <details>
+            <summary>Show roadmap details</summary>
+            <div className="phase-list" style={{ marginTop: "0.8rem" }}>
+              {phaseRoadmap.map((phase, index) => {
+                const isCurrent = currentPhaseIndex === index;
 
-              return (
-                <article key={phase.name} className={`phase-item ${isCurrent ? "is-current" : ""}`}>
-                  {isCurrent && <div className="phase-pointer">You are here</div>}
-                  <h3>{phase.name}</h3>
-                  <p className="meta">{phase.window}</p>
-                  <p>{phase.focus}</p>
-                </article>
-              );
-            })}
-          </div>
+                return (
+                  <article key={phase.name} className={`phase-item ${isCurrent ? "is-current" : ""}`}>
+                    {isCurrent && <div className="phase-pointer">You are here</div>}
+                    <h3>{phase.name}</h3>
+                    <p className="meta">{phase.window}</p>
+                    <p>{phase.focus}</p>
+                  </article>
+                );
+              })}
+            </div>
+          </details>
         </section>
 
         <section className="card">

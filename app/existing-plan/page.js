@@ -220,26 +220,31 @@ export default function ExistingPlanPage() {
 
       <section className="card stack">
         <h2>
-          Suggested sessions for {weekday} <span className="badge">Singapore local day</span>
+          Suggested training for {weekday} <span className="badge">Singapore local day</span>
         </h2>
-        <div className="split">
-          <article className="card">
-            <h3>Training</h3>
-            <p>{today.training}</p>
-          </article>
-          <article className="card">
-            <h3>Nutrition</h3>
-            <p>{today.nutrition}</p>
-          </article>
-        </div>
-        <article className="card">
-          <h3>Hydration</h3>
-          <p>{today.hydration}</p>
-        </article>
-        <article className="card">
-          <h3>Sleep</h3>
-          <p>{today.sleep}</p>
-        </article>
+        <details>
+          <summary>Show suggested training details</summary>
+          <div className="stack" style={{ marginTop: "0.8rem" }}>
+            <div className="split">
+              <article className="card">
+                <h3>Training</h3>
+                <p>{today.training}</p>
+              </article>
+              <article className="card">
+                <h3>Nutrition</h3>
+                <p>{today.nutrition}</p>
+              </article>
+            </div>
+            <article className="card">
+              <h3>Hydration</h3>
+              <p>{today.hydration}</p>
+            </article>
+            <article className="card">
+              <h3>Sleep</h3>
+              <p>{today.sleep}</p>
+            </article>
+          </div>
+        </details>
       </section>
 
       <section className="card stack">
