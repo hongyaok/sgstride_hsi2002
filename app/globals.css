@@ -737,6 +737,12 @@ textarea {
   padding-right: 0.15rem;
 }
 
+.modal-body-static {
+  overflow: hidden;
+  overscroll-behavior: auto;
+  padding-right: 0;
+}
+
 .profile-grid {
   display: grid;
   gap: 0.4rem;
@@ -749,8 +755,236 @@ textarea {
   background: rgba(255, 255, 255, 0.35);
 }
 
+.intro-roadmap {
+  position: relative;
+  margin-top: 0.15rem;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.5);
+  padding: 0.9rem 0.75rem 0.65rem;
+}
+
+.intro-progress-copy {
+  margin-top: -0.2rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.intro-confetti {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.confetti-piece {
+  position: absolute;
+  top: -10%;
+  width: 8px;
+  height: 14px;
+  border-radius: 2px;
+  opacity: 0.95;
+  animation: intro-confetti-fall 1.95s ease-in forwards;
+}
+
+.confetti-piece.c-1 {
+  left: 8%;
+  animation-delay: 0s;
+  background: #ff8a4d;
+}
+
+.confetti-piece.c-2 {
+  left: 16%;
+  animation-delay: 0.12s;
+  background: #f5c84c;
+}
+
+.confetti-piece.c-3 {
+  left: 26%;
+  animation-delay: 0.22s;
+  background: #0d948b;
+}
+
+.confetti-piece.c-4 {
+  left: 38%;
+  animation-delay: 0.06s;
+  background: #1ba39c;
+}
+
+.confetti-piece.c-5 {
+  left: 52%;
+  animation-delay: 0.18s;
+  background: #ef5a32;
+}
+
+.confetti-piece.c-6 {
+  left: 68%;
+  animation-delay: 0.1s;
+  background: #f08f2f;
+}
+
+.confetti-piece.c-7 {
+  left: 82%;
+  animation-delay: 0.24s;
+  background: #48b5aa;
+}
+
+.intro-roadmap-viewport {
+  position: relative;
+  height: 156px;
+  overflow: hidden;
+}
+
+.intro-roadmap-rail {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  transition: transform 0.5s cubic-bezier(0.2, 0.84, 0.34, 1);
+}
+
+.intro-roadmap-line {
+  position: absolute;
+  top: 54px;
+  height: 7px;
+  border-radius: 999px;
+  background: rgba(16, 34, 34, 0.12);
+}
+
+.intro-roadmap-progress {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(120deg, var(--accent), #ff9d72);
+  transition: width 0.45s cubic-bezier(0.2, 0.84, 0.34, 1);
+}
+
+.intro-roadmap-pointer {
+  position: absolute;
+  top: 2px;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 1px solid rgba(239, 90, 50, 0.35);
+  border-radius: 999px;
+  padding: 0.34rem 0.58rem;
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: var(--accent);
+  background: var(--accent-soft);
+  box-shadow: 0 10px 16px rgba(239, 90, 50, 0.16);
+  white-space: nowrap;
+}
+
+.intro-roadmap-pointer.is-moving {
+  animation: intro-pointer-bob 0.82s ease-in-out infinite;
+}
+
+.intro-roadmap-stop {
+  position: absolute;
+  top: 43px;
+  width: 150px;
+  transform: translateX(-50%);
+  text-align: center;
+  opacity: 0.52;
+  transition: opacity 0.42s ease;
+}
+
+.intro-roadmap-stop.is-reached {
+  opacity: 1;
+}
+
+.intro-roadmap-stop.is-current .intro-roadmap-label {
+  color: var(--text);
+  font-weight: 700;
+}
+
+.intro-roadmap-dot {
+  display: inline-flex;
+  width: 20px;
+  height: 20px;
+  border-radius: 999px;
+  border: 3px solid rgba(16, 34, 34, 0.24);
+  background: var(--surface-strong);
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.62);
+  transition: transform 0.4s ease, background-color 0.4s ease, border-color 0.4s ease;
+}
+
+.intro-roadmap-stop.is-reached .intro-roadmap-dot {
+  border-color: rgba(239, 90, 50, 0.45);
+  background: rgba(239, 90, 50, 0.16);
+}
+
+.intro-roadmap-stop.is-current .intro-roadmap-dot {
+  background: var(--accent);
+  border-color: var(--accent);
+  transform: scale(1.08);
+}
+
+.intro-roadmap-label {
+  display: block;
+  margin-top: 0.48rem;
+  font-size: 0.8rem;
+  line-height: 1.2;
+  color: var(--text-muted);
+}
+
+.intro-phase-detail {
+  margin-top: 0.45rem;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 0.72rem 0.76rem;
+  background: rgba(10, 143, 138, 0.06);
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.44s ease, transform 0.44s ease;
+}
+
+.intro-phase-detail.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.intro-phase-detail p {
+  margin: 0;
+}
+
+.intro-phase-title {
+  margin-bottom: 0.28rem !important;
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  color: var(--text);
+}
+
 :root[data-theme="dark"] .profile-grid p {
   background: rgba(18, 32, 34, 0.75);
+}
+
+:root[data-theme="dark"] .intro-roadmap {
+  background: rgba(16, 30, 33, 0.72);
+}
+
+:root[data-theme="dark"] .intro-progress-copy {
+  color: #f5fffd;
+}
+
+:root[data-theme="dark"] .intro-roadmap-line {
+  background: rgba(168, 209, 199, 0.28);
+}
+
+:root[data-theme="dark"] .intro-roadmap-dot {
+  box-shadow: 0 0 0 5px rgba(12, 23, 25, 0.7);
+}
+
+:root[data-theme="dark"] .intro-phase-detail {
+  background: rgba(76, 194, 180, 0.12);
+}
+
+:root[data-theme="dark"] .intro-roadmap-stop.is-current .intro-roadmap-label {
+  color: #f5fffd;
 }
 
 .footer-note {
@@ -854,6 +1088,35 @@ textarea {
   .metrics-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
+  .intro-roadmap-viewport {
+    height: 176px;
+  }
+
+  .intro-roadmap-line {
+    top: 56px;
+  }
+
+  .intro-roadmap-stop {
+    top: 44px;
+    width: 170px;
+  }
+
+  .intro-roadmap-dot {
+    width: 22px;
+    height: 22px;
+    box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.62);
+  }
+
+  .intro-roadmap-label {
+    font-size: 0.86rem;
+    margin-top: 0.56rem;
+    line-height: 1.24;
+  }
+
+  .intro-phase-detail {
+    margin-top: 0.55rem;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -863,6 +1126,24 @@ textarea {
     filter: none;
     transition: none;
     will-change: auto;
+  }
+
+  .intro-roadmap-progress,
+  .intro-roadmap-rail,
+  .intro-roadmap-pointer,
+  .intro-roadmap-stop,
+  .intro-roadmap-dot,
+  .intro-phase-detail {
+    transition: none;
+  }
+
+  .intro-roadmap-pointer.is-moving {
+    animation: none;
+  }
+
+  .confetti-piece {
+    animation: none;
+    opacity: 0;
   }
 }
 
@@ -885,5 +1166,35 @@ textarea {
 
   to {
     transform: rotate(360deg);
+  }
+}
+
+@keyframes intro-pointer-bob {
+  0% {
+    transform: translateX(-50%) translateY(0);
+  }
+
+  50% {
+    transform: translateX(-50%) translateY(-3px);
+  }
+
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+@keyframes intro-confetti-fall {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0;
+  }
+
+  12% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(185px) rotate(380deg);
+    opacity: 0;
   }
 }

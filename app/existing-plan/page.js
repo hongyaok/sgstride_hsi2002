@@ -13,36 +13,43 @@ const dailyPlan = {
     training: "Easy run 5 km (Zone 2), focus on conversational pace and relaxed cadence.",
     nutrition: "Prioritize carbs and protein at dinner (rice + lean protein + vegetables).",
     hydration: "500 ml in the hour pre-run, then 150-250 ml every 20 minutes in humid conditions.",
+    sleep: "Aim for 7-9 hours! Sleep deprivation causes a more deleterious effect on endurance performance in exercises lasting more than 30 min.",
   },
-  Tuesday: {
+  Tuesday: {  
     training: "Strength day (lower body + trunk), 35 minutes. Optional 20-minute recovery walk.",
     nutrition: "Protein-first meals and omega-3 rich foods to support muscular recovery.",
     hydration: "Aim pale-yellow urine through day; add sodium at lunch and dinner.",
+    sleep: "Aim for 7-9 hours, sleep deprivation causes a more deleterious effect on endurance performance in exercises lasting more than 30 min.",
   },
   Wednesday: {
     training: "Quality session: 6 x 400 m comfortably hard, with easy jog recoveries.",
     nutrition: "Pre-session snack with 30-45 g carbs. Post-session carbs + protein within 1 hour.",
     hydration: "Start hydrated and include electrolytes if running in late-afternoon heat.",
+    sleep: "Aim for 7-9 hours, sleep deprivation causes a more deleterious effect on endurance performance in exercises lasting more than 30 min.",
   },
   Thursday: {
-    training: "Rest or mobility (hips, calves, ankles). Keep total load low.",
-    nutrition: "Balanced intake with vegetables, iron-rich foods, and adequate total calories.",
-    hydration: "2.2-2.8 L fluid over the day, adjusted for weather and sweat rate.",
+    training: "85% HRmax tempo run for 10km.",
+    nutrition: "Balanced meals, with protein intake of 104g, carbs intake of around 325g-780g",
+    hydration: "450ml-750ml fluid per hour over the day, adjust for weather and sweat rate. Target about 500-700mg of sodium per litre of fluid.",
+    sleep: "Aim for 7-9 hours! Sleep deprivation causes a more deleterious effect on endurance performance in exercises lasting more than 30 min.",
   },
   Friday: {
     training: "Easy run 6 km + 4 short strides. Keep effort controlled.",
     nutrition: "Moderate carbs through day, light pre-run snack if training after classes/work.",
     hydration: "Sip regularly throughout afternoon; avoid starting the run already dehydrated.",
+    sleep: "Aim for 7-9 hours, sleep deprivation causes a more deleterious effect on endurance performance in exercises lasting more than 30 min.",
   },
   Saturday: {
     training: "Long run (gradual build phase): 10-14 km at easy effort.",
     nutrition: "For runs >90 min, take 30-60 g carbs per hour and refuel post-run quickly.",
     hydration: "Use electrolytes during run; account for Singapore humidity and heat stress.",
+    sleep: "Aim for 7-9 hours, sleep deprivation causes a more deleterious effect on endurance performance in exercises lasting more than 30 min.",
   },
   Sunday: {
     training: "Recovery day. Optional 25-minute light walk or gentle mobility routine.",
     nutrition: "Keep protein spread across meals; include fruit and whole grains.",
     hydration: "Top up fluids and sodium to prepare for next training week.",
+    sleep: "Aim for 7-9 hours, sleep deprivation causes a more deleterious effect on endurance performance in exercises lasting more than 30 min.",
   },
 };
 
@@ -229,6 +236,10 @@ export default function ExistingPlanPage() {
           <h3>Hydration</h3>
           <p>{today.hydration}</p>
         </article>
+        <article className="card">
+          <h3>Sleep</h3>
+          <p>{today.sleep}</p>
+        </article>
       </section>
 
       <section className="card stack">
@@ -335,42 +346,6 @@ export default function ExistingPlanPage() {
 
       </section>
 
-      <section className="card stack">
-        <h3>Daily wellness check-in</h3>
-        <p>Record nutrition intake and sleep schedule for better recovery tracking.</p>
-        <form className="form-grid" onSubmit={handleWellnessSubmit}>
-          <div className="split">
-            <div className="field">
-              <label htmlFor="nutritionIntake">Nutrition intake</label>
-              <input id="nutritionIntake" name="nutritionIntake" type="text" placeholder="E.g. 2200 kcal, 320g carbs" required />
-            </div>
-            <div className="field">
-              <label htmlFor="hydrationIntake">Hydration (ml)</label>
-              <input id="hydrationIntake" name="hydrationIntake" type="number" min="0" step="50" placeholder="2800" required />
-            </div>
-          </div>
-
-          <div className="split">
-            <div className="field">
-              <label htmlFor="sleepStart">Sleep start</label>
-              <input id="sleepStart" name="sleepStart" type="time" required />
-            </div>
-            <div className="field">
-              <label htmlFor="sleepEnd">Wake up</label>
-              <input id="sleepEnd" name="sleepEnd" type="time" required />
-            </div>
-          </div>
-
-          <div className="field">
-            <label htmlFor="sleepHours">Total sleep hours</label>
-            <input id="sleepHours" name="sleepHours" type="number" min="0" max="24" step="0.1" placeholder="7.5" required />
-          </div>
-
-          <button type="submit" className="btn btn-secondary">
-            Save wellness input
-          </button>
-        </form>
-      </section>
 
       </AppShell>
 

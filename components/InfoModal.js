@@ -1,6 +1,6 @@
 "use client";
 
-export default function InfoModal({ open, title, onClose, children }) {
+export default function InfoModal({ open, title, onClose, children, scrollable = true }) {
   if (!open) {
     return null;
   }
@@ -14,7 +14,7 @@ export default function InfoModal({ open, title, onClose, children }) {
             Close
           </button>
         </div>
-        <div className="modal-body">{children}</div>
+        <div className={`modal-body ${scrollable ? "" : "modal-body-static"}`.trim()}>{children}</div>
       </div>
     </div>
   );
