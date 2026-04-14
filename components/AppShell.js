@@ -16,6 +16,7 @@ export default function AppShell({ title, subtitle, children, detailsMenu }) {
   const [showNav, setShowNav] = useState(false);
   const [showDetails, setShowDetails] = useState(false);
   const [showProfile, setShowProfile] = useState(false);
+  const [showSources, setShowSources] = useState(false);
   const [runnerProfile, setRunnerProfile] = useState(loadRunnerProfile);
 
   function handleLogout() {
@@ -108,6 +109,12 @@ export default function AppShell({ title, subtitle, children, detailsMenu }) {
           ))}
         </main>
 
+        <footer className="source-link-wrap" aria-label="Source links">
+          <button type="button" className="source-link source-link-button" onClick={() => setShowSources(true)}>
+            View sources
+          </button>
+        </footer>
+
         <InfoModal open={showProfile} onClose={() => setShowProfile(false)} title="Runner profile">
           <div className="profile-grid">
             <p>
@@ -134,6 +141,27 @@ export default function AppShell({ title, subtitle, children, detailsMenu }) {
             <p>
               <strong>Target timing:</strong> {runnerProfile.targetTiming}
             </p>
+          </div>
+        </InfoModal>
+
+        <InfoModal open={showSources} onClose={() => setShowSources(false)} title="Sources">
+          <div className="stack">
+            <a
+              className="btn btn-secondary"
+              href="https://github.com/hongyaok/sgstride_hsi2002.git"
+              target="_blank"
+              rel="noreferrer"
+            >
+              View source code
+            </a>
+            <a
+              className="btn btn-secondary"
+              href="https://drive.google.com/file/d/1wPscFxA7DUuGbWI297I43W4hVAYWgqA0/view?usp=sharing"
+              target="_blank"
+              rel="noreferrer"
+            >
+              View references
+            </a>
           </div>
         </InfoModal>
       </div>

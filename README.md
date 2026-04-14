@@ -1,6 +1,7 @@
 # StrideSG Marathon Prototype
 
 Mobile-first marathon training frontend prototype built with Next.js App Router.
+ChatGPT Codex was used in the building of this.
 
 ## Why this stack
 

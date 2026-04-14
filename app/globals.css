@@ -72,6 +72,36 @@ a {
   width: min(980px, 100%);
 }
 
+.source-link-wrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+  padding: 0.2rem 0.2rem 0.8rem;
+}
+
+.source-link {
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface-strong);
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  padding: 0.45rem 0.8rem;
+  transition: color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.source-link:hover {
+  color: var(--text);
+  border-color: rgba(13, 148, 139, 0.36);
+  transform: translateY(-1px);
+}
+
+.source-link-button {
+  font: inherit;
+  cursor: pointer;
+}
+
 .panel {
   background: var(--bg-panel);
   border: 1px solid var(--border);

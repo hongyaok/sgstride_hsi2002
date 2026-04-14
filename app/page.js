@@ -6,6 +6,7 @@ import { useState } from "react";
 import SingaporeClock from "../components/SingaporeClock";
 import ThemeToggle from "../components/ThemeToggle";
 import LoadingModal from "../components/LoadingModal";
+import InfoModal from "../components/InfoModal";
 
 function GoogleIcon() {
   return (
@@ -26,6 +27,7 @@ function StravaIcon() {
 export default function LoginPage() {
   const router = useRouter();
   const [loadingProvider, setLoadingProvider] = useState("");
+  const [showSources, setShowSources] = useState(false);
 
   function startLogin(provider) {
     setLoadingProvider(provider);
@@ -66,11 +68,38 @@ export default function LoginPage() {
           <p className="footer-note">This app is hardcoded for demo use.</p>
         </section>
 
+        <footer className="source-link-wrap" aria-label="Source links">
+          <button type="button" className="source-link source-link-button" onClick={() => setShowSources(true)}>
+            View sources
+          </button>
+        </footer>
+
         <LoadingModal
           open={Boolean(loadingProvider)}
           title={`Signing in with ${loadingProvider}`}
           description="Preparing your dashboard..."
         />
+
+        <InfoModal open={showSources} onClose={() => setShowSources(false)} title="Sources">
+          <div className="stack">
+            <a
+              className="btn btn-secondary"
+              href="https://github.com/hongyaok/sgstride_hsi2002.git"
+              target="_blank"
+              rel="noreferrer"
+            >
+              View source code
+            </a>
+            <a
+              className="btn btn-secondary"
+              href="https://drive.google.com/file/d/1wPscFxA7DUuGbWI297I43W4hVAYWgqA0/view?usp=sharing"
+              target="_blank"
+              rel="noreferrer"
+            >
+              View references
+            </a>
+          </div>
+        </InfoModal>
       </div>
     </div>
   );
